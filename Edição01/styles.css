@@ -217,6 +217,7 @@ td.expense {
 .modal {
     background: #F0F2f5;
     padding: 2.4rem;    
+    position: relative;
 }
 
 /*Form =========================================*/
