@@ -116,8 +116,8 @@ const DOM = {
 //econômicos envolvidos nas transações. 
 const Utils = {
     formatAmount(value) {
-        value = Number(value.replace(/\,\./g,"")) * 100
-        return value
+        value = value * 100
+        return Math.round(value)
     },
     formatDate(date) {
         const splittedDate = date.split("-")
@@ -139,7 +139,7 @@ const Utils = {
     }
 }
 
-//contante que cuidará das propriedades do formulario
+//cosntante que cuidará das propriedades do formulario
 const Form = {
     description: document.querySelector('input#description'),
     amount: document.querySelector('input#amount'),
