@@ -297,7 +297,7 @@ button {
 .btn-6 span:hover:before {
     width: 100%;
 }
-  .btn-6 span:hover:after {
+.btn-6 span:hover:after {
     width: 100%;
 }
 
@@ -437,24 +437,291 @@ button {
     width: 100%;
 }
 
+/* No botão 9, apliquei uma técnica que combina um pseudo elemento after com a função transform: scale rotate, causando uma  rotação no bacground-image */
+.btn-9 {
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.btn-9:after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1fd1f9;
+    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    transition: all 0.3s ease;
+}
+.btn-9:hover {
+    background: transparent;
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255,255,255,.5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    color: #fff;
+}
+.btn-9:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255,255,255,.5),  inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
 
+/*No botão 10 novamente eu usei o pseudo elemento before en conjunto com o transform: scale para dar a sensação de resurgimento do bacground*/
+.btn-10 {
+    background: rgb(22,9,240);
+    background: linear-gradient(0deg, rgba(22,9,240,1) 0%, rgba(49,110,244,1) 100%);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.btn-10:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    -webkit-transform: scale(.1);
+    transform: scale(.1);    
+}
+.btn-10:hover {
+    color: #fff;
+    border: none;
+    background: transparent;
+}
+.btn-10:hover:before {
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
 
+/*No botão 11 eu usei o função @-webkit-keyframes shiny-btn1 dentro do pseudo elemento before para dar uma textura de vidro para o botão*/
+.btn-11 {
+    border: none;
+    background: rgb(251,33,117);
+    background: linear-gradient(0deg, rgba(251,33,117,1) 0%, rgba(234,76,137,1) 100%);
+    color: #fff;
+    overflow: hidden;
+}
+.btn-11:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.btn-11:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0px;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+.btn-11:hover{
+    opacity: .7;
+}
+.btn-11:active{
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.3), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255,255,255,.2), inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+@-webkit-keyframes shiny-btn1 {
+    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}
 
+/*No botão 12a técnica usada foi utilizar 2 span dentro do button e alternalos com o hover transform: rotatex */
+.btn-12{
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    border:none;
+    box-shadow: none;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    -webkit-perspective: 230px;
+    perspective: 230px;
+}
+.btn-12 span {
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+    display: block;
+    position: absolute;
+    width: 130px;
+    height: 40px;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin: 0;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.btn-12 span:nth-child(1) {
+    box-shadow:
+     -7px -7px 20px 0px #fff9,
+     -4px -4px 5px 0px #fff9,
+     7px 7px 20px 0px #0002,
+     4px 4px 5px 0px #0001;
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    -webkit-transform-origin: 50% 50% -20px;
+    -moz-transform-origin: 50% 50% -20px;
+    transform-origin: 50% 50% -20px;
+}
+.btn-12 span:nth-child(2) {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: 50% 50% -20px;
+    -moz-transform-origin: 50% 50% -20px;
+    transform-origin: 50% 50% -20px;
+}
+.btn-12:hover span:nth-child(1) {
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+}
+.btn-12:hover span:nth-child(2) {
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    color: transparent;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+}
+  
+/*No botão 13 a técnica foi usar o pseudo elemento after combinado com box-shadow para criar um efeito de onda no botão */
+.btn-13 {
+    background-color: #89d8d3;
+    background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+    border: none;
+    z-index: 1;
+}
+.btn-13:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #4dccc6;
+    background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.btn-13:hover {
+    color: #fff;
+}
+.btn-13:hover:after {
+    top: 0;
+    height: 100%;
+}
+.btn-13:active {
+    top: 2px;
+}
 
+/*Usei no botão 14 a mesma técnica que usei no botão 13, alterando somente o sentido que a onda passa pelo botão.*/
+.btn-14 {
+    background: rgb(255,151,0);
+    border: none;
+    z-index: 1;
+}
+.btn-14:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #eaf818;
+    background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%);
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5); 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    transition: all 0.3s ease;
+}
+.btn-14:hover {
+    color: #000;
+}
+.btn-14:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+}
+.btn-14:active {
+    top: 2px;
+}
+  
+/* Usei no botão 15 a mesma técnica que usei no botão 13, mudando para o sentido da onda para horizontal. */
+.btn-15 {
+    background: #b621fe;
+    border: none;
+    z-index: 1;
+}
+.btn-15:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #663dff;
+    border-radius: 5px;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    transition: all 0.3s ease;
+}
+.btn-15:hover {
+    color: #fff;
+}
+.btn-15:hover:after {
+    left: 0;
+    width: 100%;
+}
+.btn-15:active {
+    top: 2px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 16 */
+.btn-16 {
+    border: none;
+    color: #000;
+}
+.btn-16:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.btn-16:hover {
+    color: #000;
+}
+.btn-16:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+}
+.btn-16:active {
+    top: 2px;
+}
 
 /* No botão 17, usei a propriedade linear-gradient para conseguir uma textura de madeira. */ 
 .btn-17 {
